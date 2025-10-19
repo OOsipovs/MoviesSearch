@@ -1,0 +1,179 @@
+﻿.page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #141414;
+    color: #fff;
+    padding: 2rem;
+    overflow: auto;
+}
+
+.page-title {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    color: #aaa;
+}
+
+.search-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    border: none;
+    font-size: 1.1rem;
+    width: 300px;
+    background: #222;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.search-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    background: #e50914;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+}
+
+    .search-button:hover {
+        background: #b0060f;
+    }
+
+.error-message {
+    color: #e50914;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #aaa;
+}
+
+.latest-searches {
+    margin-bottom: 2rem;
+    list-style: none;
+    padding: 0;
+}
+
+.latest-search-item {
+    margin-bottom: 0.25rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+.content-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.search-results {
+    flex: 1;
+}
+
+.movie-list {
+    list-style: none;
+    padding: 0;
+}
+
+.movie-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.details-button {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background: #e50914;
+    color: #fff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+}
+
+    .details-button:hover {
+        background: #b0060f;
+    }
+
+.movie-year {
+    color: #aaa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    flex-grow: 1;
+}
+
+.movie-details {
+    flex: 1;
+    min-width: 250px;
+}
+
+.details-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.close-button {
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0 1.5rem;
+    color: #fff;
+}
+
+.movie-poster {
+    max-width: 200px;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.no-poster {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+.detail-item {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+.detail-plot {
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    padding-right: 5px;
+}
+
+.detail-actors {
+    padding-bottom: 20pt;
+}

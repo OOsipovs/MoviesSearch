@@ -1,0 +1,134 @@
+﻿@page "/"
+@using MoviesSearch.Core.Entities
+@using MoviesSearch.Application.UseCases
+@inject GetLatestSearches LatestSearchesUseCase
+@inject GetMovieDetails DetailsUseCase
+@inject SearchMovies SearchUseCase
+
+@rendermode RenderMode.InteractiveServer
+
+<div class="page">
+    <h1 class="page-title">Movie Search</h1>
+
+    <div class="search-container">
+        <input @bind="searchTitle"
+               @oninput="UpdateSearchTitle"
+               placeholder="Enter movie title"
+               class="search-input"
+               @onkeypress="@(e => e.Key == "Enter" ? Search() : Task.CompletedTask)" />
+        <button @onclick="Search" class="search-button">Search</button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <p class="error-message">@errorMessage</p>
+    }
+
+    <h2 class="section-title">Latest Searches</h2>
+    <ul class="latest-searches">
+        @foreach (var query in latestQueries)
+        {
+            <li class="latest-search-item">@query</li>
+        }
+    </ul>
+
+    <div class="content-container">
+        <div class="search-results">
+            @if (searchResults is not null)
+            {
+                <h2 class="section-title">Search Results</h2>
+                <ul class="movie-list">
+                    @foreach (var movie in searchResults)
+                    {
+                        <li class="movie-item">
+                            <a href="#" @onclick="() => ShowDetails(movie.ImdbID)" class="details-button">@movie.Title</a>
+                            <span class="movie-year">(@movie.Year)</span>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+        <div class="movie-details">
+            @if (selectedMovie is not null)
+            {
+                <div class="details-header">
+                    <h2 class="section-title">Movie Details</h2>
+                    <span @onclick="() => selectedMovie = null" class="close-button" title="Close" aria-label="Close" tabindex="0" role="button">&times;</span>
+                </div>
+                @if (!string.IsNullOrEmpty(selectedMovie.Poster))
+                {
+                    <img src="@selectedMovie.Poster" alt="@selectedMovie.Title Poster" class="movie-poster" />
+                }
+                else
+                {
+                    <p class="no-poster">No poster available.</p>
+                }
+                <p class="detail-item"><strong>Title:</strong> @selectedMovie.Title</p>
+                <p class="detail-item detail-plot"><strong>Plot:</strong> @(selectedMovie.Plot ?? "No plot available.")</p>
+                <p class="detail-item"><strong>IMDb Rating:</strong> @(selectedMovie.ImdbRating ?? "N/A")</p>
+                <p class="detail-item"><strong>Director:</strong> @(selectedMovie.Director ?? "N/A")</p>
+                <p class="detail-item detail-actors"><strong>Actors:</strong> @(selectedMovie.Actors ?? "N/A")</p>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private string searchTitle = "";
+    private List<string> latestQueries = [];
+    private List<Movie>? searchResults;
+    private MovieDetails? selectedMovie;
+    private string? errorMessage;
+    private CancellationTokenSource? detailsCts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            latestQueries = await LatestSearchesUseCase.ExecuteAsync(5);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error loading search history: {ex.Message}";
+        }
+    }
+
+    private async Task UpdateSearchTitle(ChangeEventArgs e)
+    {
+        searchTitle = e.Value?.ToString() ?? "";
+    }
+
+    private async Task Search()
+    {
+        detailsCts?.Cancel();
+        detailsCts = new CancellationTokenSource();
+
+        try
+        {
+            errorMessage = null;
+            searchResults = await SearchUseCase.ExecuteAsync(searchTitle, detailsCts.Token);
+            latestQueries = await LatestSearchesUseCase.ExecuteAsync(5);
+            selectedMovie = null;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error searching movies: {ex.Message}";
+        }
+    }
+
+    private async Task ShowDetails(string imdbID)
+    {
+        detailsCts?.Cancel();
+        detailsCts = new CancellationTokenSource();
+
+        try
+        {
+            errorMessage = null;
+            selectedMovie = await DetailsUseCase.ExecuteAsync(imdbID, detailsCts.Token);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error fetching movie details: {ex.Message}";
+        }
+    }
+}

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesSearch.Core", "MoviesSearch.Core\MoviesSearch.Core.csproj", "{BD7A448C-9716-4F85-942D-8A6BDE1FF7A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesSearch.Infrastructure", "MoviesSearch.Infrastructure\MoviesSearch.Infrastructure.csproj", "{B64C57C3-3C61-4A7A-8AE7-9B20D5A7CF15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesSearch.Presentation", "MoviesSearch.Presentation\MoviesSearch.Presentation.csproj", "{F276D39B-0349-42CF-A490-E9CA9DD39DD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesSearch.Tests", "MoviesSearch.Tests\MoviesSearch.Tests.csproj", "{1E032F2E-60B0-45DE-9513-39E43A7BB65B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesSearch.Application", "MoviesSearch.Application\MoviesSearch.Application.csproj", "{6CD52A01-C9BC-48C3-80D7-4BE0E5CF1F09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD7A448C-9716-4F85-942D-8A6BDE1FF7A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD7A448C-9716-4F85-942D-8A6BDE1FF7A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD7A448C-9716-4F85-942D-8A6BDE1FF7A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD7A448C-9716-4F85-942D-8A6BDE1FF7A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64C57C3-3C61-4A7A-8AE7-9B20D5A7CF15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64C57C3-3C61-4A7A-8AE7-9B20D5A7CF15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64C57C3-3C61-4A7A-8AE7-9B20D5A7CF15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64C57C3-3C61-4A7A-8AE7-9B20D5A7CF15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F276D39B-0349-42CF-A490-E9CA9DD39DD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F276D39B-0349-42CF-A490-E9CA9DD39DD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F276D39B-0349-42CF-A490-E9CA9DD39DD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F276D39B-0349-42CF-A490-E9CA9DD39DD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E032F2E-60B0-45DE-9513-39E43A7BB65B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E032F2E-60B0-45DE-9513-39E43A7BB65B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E032F2E-60B0-45DE-9513-39E43A7BB65B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E032F2E-60B0-45DE-9513-39E43A7BB65B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CD52A01-C9BC-48C3-80D7-4BE0E5CF1F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD52A01-C9BC-48C3-80D7-4BE0E5CF1F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD52A01-C9BC-48C3-80D7-4BE0E5CF1F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD52A01-C9BC-48C3-80D7-4BE0E5CF1F09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C010087D-B2E3-411A-B2B3-BAC89F9DC09A}
+	EndGlobalSection
+EndGlobal

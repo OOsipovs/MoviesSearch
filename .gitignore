@@ -1,0 +1,66 @@
+# .NET build outputs
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code workspace settings
+.vscode/
+
+# Rider project files
+.idea/
+
+# Visual Studio files
+*.vs/
+.vs/
+
+# ASP.NET/Blazor publish outputs
+wwwroot/dist/
+wwwroot/node_modules/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build results
+*.dll
+*.exe
+*.pdb
+*.cache
+*.mdb
+
+# Test results
+TestResults/
+*.coverage
+*.coveragexml
+
+# Others
+_ReSharper*/
+*.resharper
+*.DotSettings.user
+
+# Entity Framework
+Migrations/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Ignore secrets and config (if present)
+secrets.json
+appsettings.Development.json
+appsettings.Local.json
