@@ -41,7 +41,7 @@ The solution is organized into four projects, following Clean Architecture layer
    - Integrates with use cases to display search results and movie details.
 
 5. **MoviesSearch.Tests**:
-   - Contains unit tests (`OmdbClientTests`, `GetLatestSearchesTests`, `GetMovieDetailsTests`, `SearchMoviesTests`).
+   - Contains unit tests .
    - Uses `xunit`, `Moq`, and `FluentAssertions` for testing.
 
 ## Main Workflow
@@ -49,19 +49,18 @@ The application’s workflow is as follows:
 
 1. **User Interaction (Presentation Layer)**:
    - In `Home.razor`, the user enters a search term (e.g., "Matrix").
-   - The UI calls `SearchMovies` to fetch movie results.
+   - The UI calls `Search` to fetch movie results.
    - Selecting a movie (e.g., IMDb ID "tt0133093") triggers `GetMovieDetails` to show details.
    - Recent searches are displayed via `GetLatestSearches`.
    - *Note*: Authentication is not implemented, but comments in `Home.razor` and use cases indicate where checks (e.g., user authorization) would be added.
 
 2. **Business Logic (Application Layer)**:
    - `SearchMovies.ExecuteAsync`:
-     - Validates the search term.
      - Calls `IMovieRepository.SearchMoviesAsync` to fetch movies.
      - Saves the search term using `ISearchHistoryRepository.AddSearchAsync`.
    - `GetMovieDetails.ExecuteAsync`:
-     - Validates the IMDb ID.
-     - Calls `IMovieRepository.GetMovieDetailsAsync` with `CancellationToken` support.
+      - Calls `IMovieRepository.GetMovieDetailsAsync` with `CancellationToken` support.
+      - Validates the IMDb ID.
    - `GetLatestSearches.ExecuteAsync`:
      - Retrieves recent search terms from `ISearchHistoryRepository`.
 
